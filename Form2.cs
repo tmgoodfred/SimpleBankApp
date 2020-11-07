@@ -72,9 +72,9 @@ namespace SimpleBank
                     if (passCheck.IsMatch(createPassTxt.Text))  //the regex match to make sure the password actually fits the requirements
                     {
                         createPassword = createPassTxt.Text;    //if both passwords match, it doesn't matter which one you take, I picked the first field.
-                        string path1 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\userTuple.txt");    //this gets the path for the username text file
-                        string path2 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\passTuple.txt");
-                        string path3 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\userData.txt");
+                        string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\userTuple.txt";  //username info file
+                        string path2 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\passTuple.txt";  //password info file
+                        string path3 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\userData.txt";   //bank info file
                         if (!File.Exists(path3))
                         { // Create a file to write to   
                             using (StreamWriter sw = File.CreateText(path3)) { }

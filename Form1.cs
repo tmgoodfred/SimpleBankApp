@@ -55,10 +55,16 @@ namespace SimpleBank
         public Form1()
         {
             InitializeComponent();
-            string path1 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\userTuple.txt");    //gets the local file path for the username text file
-            string path2 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\passTuple.txt");
+            string directory1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\";  //directory that saves in MyDocuments in a SimpleBankApp directory
+            string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\userTuple.txt";  //file in my docs that has the username info
+            string path2 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\passTuple.txt";  //file in my docs that has the password info
+
+            if (!Directory.Exists(directory1))
+            { // Create the directory
+                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SimpleBankApp"));
+            }
             if (!File.Exists(path1))
-            { // Create a file to write to   
+            {
                 using (StreamWriter sw = File.CreateText(path1)) { }
             }
             if (!File.Exists(path2))

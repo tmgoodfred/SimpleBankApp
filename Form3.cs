@@ -25,7 +25,7 @@ namespace SimpleBank
         {
             int userNum = 0;
             InitializeComponent();
-            string path1 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\userData.txt");    //gets the local file path for the user bank data
+            string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\userData.txt";    //gets the local file path for the user bank data
             try
             {
                 using (StreamReader sr = new StreamReader(path1))

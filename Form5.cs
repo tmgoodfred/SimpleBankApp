@@ -22,7 +22,7 @@ namespace SimpleBank
         static string amountReq = @"^[0-9]\d{0,9}(\.\d{1,2})?%?$";  //the regex to make sure that the data entered is a double
         Regex amountCheck = new Regex(amountReq);
         int userNum = Form1.userkey;
-        string path1 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\userData.txt");    //gets the local file path for the user bank data
+        string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\userData.txt";    //gets the local file path for the user bank data
         public Form5()
         {
             InitializeComponent();
