@@ -58,7 +58,8 @@ namespace SimpleBank
             string directory1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\";  //directory that saves in MyDocuments in a SimpleBankApp directory
             string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\userTuple.txt";  //file in my docs that has the username info
             string path2 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\passTuple.txt";  //file in my docs that has the password info
-
+            string path3 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\userData.txt";   //bank info file
+            
             if (!Directory.Exists(directory1))
             { // Create the directory
                 Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SimpleBankApp"));
@@ -70,6 +71,10 @@ namespace SimpleBank
             if (!File.Exists(path2))
             { // Create a file to write to   
                 using (StreamWriter sw = File.CreateText(path2)) { }
+            }
+            if (!File.Exists(path3))
+            { // Create a file to write to   
+                using (StreamWriter sw = File.CreateText(path3)) { }
             }
             try
             {

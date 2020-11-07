@@ -75,10 +75,6 @@ namespace SimpleBank
                         string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\userTuple.txt";  //username info file
                         string path2 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\passTuple.txt";  //password info file
                         string path3 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SimpleBankApp\userData.txt";   //bank info file
-                        if (!File.Exists(path3))
-                        { // Create a file to write to   
-                            using (StreamWriter sw = File.CreateText(path3)) { }
-                        }
                         try
                         {
                             File.AppendAllText(path1, Environment.NewLine + createUsername);    //this appends the new username onto the text file on the next line
